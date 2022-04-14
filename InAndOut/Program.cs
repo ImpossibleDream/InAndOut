@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InAndOut
 {
@@ -15,7 +9,7 @@ namespace InAndOut
         static void Main(string[] args)
         {
             List<string> txt = new List<string>();
-            StreamReader source_read = new StreamReader("C://Users/admin/Desktop/text.txt");
+            /*StreamReader source_read = new StreamReader("C://Users/admin/Desktop/text.txt");
             while (source_read.ReadLine() != null)
             {
                 txt.Add(source_read.ReadLine());
@@ -27,8 +21,32 @@ namespace InAndOut
             {
                 source_write.WriteLine(txt[i]);
             }
+
             source_write.Flush();
-            source_write.Close();
+            source_write.Close();*/
+
+            //tring path = "C://Users/admin/Desktop/text.txt";
+
+            //read
+            StreamReader sr = new StreamReader("text.txt");
+            String line1 = "";
+            while ((line1 = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(line1);
+            }
+            sr.Close();
+
+            //write
+            StreamWriter sw = new StreamWriter("test.txt");
+            string[] ss = new string[] { "This is a C# code.", "Today's task." };
+            foreach (string s in ss)
+            {
+                sw.WriteLine(s);
+            }
+            sw.Flush();
+            sw.Close();
+
+            Console.ReadKey();
         }
     }
 }
